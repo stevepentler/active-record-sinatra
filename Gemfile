@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'sinatra', require: 'sinatra/base'
 gem 'sqlite3'
-gem 'activerecord'
-gem 'sinatra-activerecord'
+gem 'activerecord' #instead of sequel
+gem 'sinatra-activerecord' #gives us rake commands
 
-group :development, :test do
+group :development, :test do #when ship to production, don't include these gems
   gem 'shotgun'
   gem 'minitest'
   gem 'tux'
