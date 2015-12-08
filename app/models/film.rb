@@ -1,7 +1,16 @@
-class Film < ActiveRecord::Base 
-  belongs_to :genre                #film will have access to ActiveRecord database
-end                                #also inherits methods
-                                   #can manipulate films in the databasae
+class Film < ActiveRecord::Base #film will have access to ActiveRecord database
+  belongs_to :genre             #also inherits methods
+  belongs_to :director          #can manipulate films in the databasae
+
+  def self.total_sales
+    director.films.sum(:box_office_sales)
+  end
+
+  # def self.average_sales
+  #   average(:box_office_sales).to_i
+  # end                 
+end                                
+                                   
 
 #ex Film.all methods like these are inherited
 #ex Film.find
